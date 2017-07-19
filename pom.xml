@@ -4,49 +4,74 @@
                              http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.mtn.training</groupId>
-    <artifactId>Result</artifactId>
+    <artifactId>ci-training</artifactId>
     <packaging>jar</packaging>
     <version>1.0-SNAPSHOT</version>
-    <name>Kamyshev_project</name>
-    <url>http://maven.apache.org</url>
- 
-    <dependencies>
-        <dependency>
-		<groupId>org.apache.commons</groupId>
-		<artifactId>commons-collections4</artifactId>
-		<version>4.1</version>
-   	 </dependency>
-	
-        <dependency>
-		<groupId>org.codehaus.sonar</groupId>
-		<artifactId>sonar-maven-plugin</artifactId>
-		<version>5.1</version>
-   	 </dependency>
-    	<dependency>
-		<groupId>junit</groupId>
-		<artifactId>junit</artifactId>
-		<version>4.12</version>
-		<scope>test</scope>
-    	</dependency>    
-    </dependencies>
+    <name>maven-task</name>
+
+<properties>
+<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <timestamp>${maven.build.timestamp}</timestamp>
+    <maven.build.timestamp.format>yyyy-MM-dd HH:mm</maven.build.timestamp.format>
+</properties>
+
+<dependencies>
+
+<dependency>
+<groupId>org.apache.commons</groupId>
+<artifactId>commons-collections4</artifactId>
+<version>4.1</version>
+</dependency>
+
+<dependency>
+<groupId>commons-collections</groupId>
+<artifactId>commons-collections</artifactId>
+<version>3.2.1</version>
+</dependency>
+
+<dependency>
+  <groupId>junit</groupId>
+  <artifactId>junit</artifactId>
+  <version>4.11</version>
+</dependency>
+
+<dependency>	
+<groupId>org.codehaus.sonar</groupId>	
+<artifactId>sonar-maven-plugin</artifactId>	
+<version>5.1</version>
+</dependency>
+
+</dependencies>
+
 <build>
-<plugins>
-<plugin>
- <groupId>org.apache.maven.plugins</groupId>
- <artifactId>maven-assembly-plugin</artifactId>
- <configuration>
-  <descriptor>src/assembly/bin.xml</descriptor>
-  <finalName>finalarch</finalName>
- </configuration>
- <executions>
-  <execution>
-   <phase>package</phase>
-   <goals>
-    <goal>single</goal>
-   </goals>
-  </execution>
- </executions>
-</plugin>
-</plugins> 
-</build>     
+     <defaultGoal>clean</defaultGoal>
+     <directory>${project.basedir}/target</directory>
+     <finalName>${project.artifactId}-${project.version}</finalName>
+       <plugins>
+          <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                    <finalName>${project.version}-${maven.build.timestamp}</finalName>
+                    <descriptor>/assembly.xml</descriptor>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+	<plugin>
+        <groupId>org.sonarsource.scanner.maven</groupId>
+        <artifactId>sonar-maven-plugin</artifactId>
+        <version>3.0.2</version>
+      </plugin>
+        </plugins>
+</build>
+
+
 </project>
+<!--TEST -->
