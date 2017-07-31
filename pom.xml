@@ -6,7 +6,7 @@
     <groupId>com.mtn.training</groupId>
     <artifactId>ci-training</artifactId>
     <packaging>jar</packaging>
-    <version>1.0-SNAPSHOT</version>
+    <version>${BUILD_NUMBER}</version>
     <name>maven-task</name>
 
 <properties>
