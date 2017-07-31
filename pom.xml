@@ -89,11 +89,12 @@
           <file>${project.basedir}/target\${project.artifactId}-${project.version}.jar</file>
           <url>http://localhost/nexus/content/repositories/releases/</url>
           <repositoryId>localnexus</repositoryId>
+          <username>admin</username>
+          <password>admin123</password>
+
           <groupId>${project.groupId}</groupId>
           <artifactId>${project.artifactId}</artifactId>
           <version>${project.version}</version>
-          <username>admin</username>
-          <password>admin123</password>
           <packaging>jar</packaging>
           <pomFile>pom.xml</pomFile>
         </configuration>
