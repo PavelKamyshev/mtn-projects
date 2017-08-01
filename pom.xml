@@ -87,7 +87,7 @@
         <version>2.5</version>
         <configuration>
           <file>${project.basedir}/target\${project.artifactId}-${project.version}.jar</file>
-          <url>http://localhost/nexus/content/repositories/releases/</url>
+          <url>http://localhost:8081/repository/maven-releases/</url>
           <repositoryId>localnexus</repositoryId>
           <username>admin</username>
           <password>admin123</password>
