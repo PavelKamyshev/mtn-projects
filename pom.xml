@@ -82,7 +82,7 @@
                     <hostname>${wildfly-hostname}</hostname>
                     <port>${wildfly-port}</port>
                     <username>kamyshev</username>
-                    <password>metalfan</password>
+                    <password></password>
                     <name>${wildfly-name}</name>
                 </configuration>
         </plugin>
